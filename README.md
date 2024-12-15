@@ -16,6 +16,8 @@ npm install react-router-dom
 
 # UI Styling with Tailwind CSS
 npm install tailwindcss autoprefixer postcss -D
+
+
 npx tailwindcss init -p
 
 # Font Awesome icons
