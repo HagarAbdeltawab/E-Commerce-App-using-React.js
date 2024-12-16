@@ -1,12 +1,10 @@
-
 ## E-Commerce App
 
- 
 - Create a new Vite project with React template
 
 `npm create vite@latest e-commerce -- --template react`
 
-## Required Packages 
+## Required Packages
 
 - Forms
 
