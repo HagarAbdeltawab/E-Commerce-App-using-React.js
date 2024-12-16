@@ -4,6 +4,7 @@ import { UserContext } from "../../context/User.context.jsx";
 import { jwtDecode } from "jwt-decode";
 import Loading from "../../components/Loading/Loading.jsx";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function Orders() {
   const { token } = useContext(UserContext);
@@ -31,6 +32,10 @@ export default function Orders() {
 
   return (
     <>
+      <Helmet>
+        <title>Orders</title>
+      </Helmet>
+
       {orders ? (
         <section className="space-y-4">
           {orders.map((order) => (

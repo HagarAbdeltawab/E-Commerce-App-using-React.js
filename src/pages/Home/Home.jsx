@@ -5,6 +5,7 @@ import axios from "axios";
 import Loading from "../../components/Loading/Loading.jsx";
 import HomeSlider from "../../components/HomeSlider/HomeSlider.jsx";
 import CategorySlider from "../../components/CategorySlider/CategorySlider.jsx";
+import { Helmet } from "react-helmet";
 
 export default function Home() {
   // * state for products
@@ -25,6 +26,11 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Home</title>
+        <meta name="description" content="FreshCart" />
+      </Helmet>
+
       <HomeSlider />
 
       <CategorySlider />

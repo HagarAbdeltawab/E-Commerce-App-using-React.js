@@ -13,6 +13,7 @@ import Cart from "./pages/Cart/Cart.jsx";
 import ProductDetails from "./pages/ProductDetails/ProductDetails.jsx";
 import Checkout from "./pages/Checkout/Checkout.jsx";
 import Orders from "./pages/Orders/Orders.jsx";
+import Offline from "./components/Offline/Offline.jsx";
 
 function App() {
   const routes = createBrowserRouter([
@@ -56,6 +57,13 @@ function App() {
         </CartProvider>
       </UserProvider>
       <Toaster position="top-right" />
+
+      <Offline>
+        <div className="p-4 rounded-lg shadow bg-gray-200 text-gray-600 font-semibold fixed right-8 bottom-8 z-50">
+          <i className="fa-solid fa-wifi mr-2"></i>
+          <span>Check Your Internet Connection</span>
+        </div>
+      </Offline>
     </>
   );
 }

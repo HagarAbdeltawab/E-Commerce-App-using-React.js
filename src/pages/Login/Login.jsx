@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { object, string } from "yup";
 import { UserContext } from "../../context/User.context.jsx";
+import { Helmet } from "react-helmet";
 
 export default function Login() {
   // *regex pattern
@@ -63,6 +64,9 @@ export default function Login() {
 
   return (
     <>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <h1 className="test-xl text-slate-700 font-semibold mb-5">
         <i className="fa-regular fa-circle-user mr-2"></i> Login
       </h1>

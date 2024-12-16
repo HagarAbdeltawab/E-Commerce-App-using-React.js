@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useFormik } from "formik";
+import { Helmet } from "react-helmet";
 // import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -75,6 +76,9 @@ export default function Signup() {
 
   return (
     <>
+      <Helmet>
+        <title>Signup</title>
+      </Helmet>
       <h1 className="test-xl text-slate-700 font-semibold mb-5">
         <i className="fa-regular fa-circle-user mr-2"></i> Register Now
       </h1>

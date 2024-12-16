@@ -8,6 +8,7 @@ import ReactImageGallery from "react-image-gallery";
 import ProductCard from "../../components/ProductCard/ProductCard.jsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { Helmet } from "react-helmet";
 
 export default function ProductDetails() {
   const [product, setProduct] = useState(null);
@@ -46,7 +47,7 @@ export default function ProductDetails() {
 
   useEffect(() => {
     getProductDetails();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     if (product === null) return;
@@ -55,8 +56,14 @@ export default function ProductDetails() {
 
   return (
     <>
+      <Helmet>
+        <title>Product Details</title>
+      </Helmet>
       {product ? (
         <>
+          <Helmet>
+            <title>{product.title}</title>
+          </Helmet>
           <section className=" grid grid-cols-12 gap-12">
             <div className="col-span-3">
               <ReactImageGallery
