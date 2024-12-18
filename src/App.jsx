@@ -14,6 +14,8 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails.jsx";
 import Checkout from "./pages/Checkout/Checkout.jsx";
 import Orders from "./pages/Orders/Orders.jsx";
 import Offline from "./components/Offline/Offline.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function App() {
   const routes = createBrowserRouter([
@@ -49,21 +51,28 @@ function App() {
     },
   ]);
 
+  const client = new QueryClient()
+
   return (
     <>
-      <UserProvider>
-        <CartProvider>
-          <RouterProvider router={routes} />
-        </CartProvider>
-      </UserProvider>
-      <Toaster position="top-right" />
+      <QueryClientProvider client={client}>
+        <UserProvider>
+          <CartProvider>
+            <RouterProvider router={routes} />
+          </CartProvider>
+        </UserProvider>
 
-      <Offline>
-        <div className="p-4 rounded-lg shadow bg-gray-200 text-gray-600 font-semibold fixed right-8 bottom-8 z-50">
-          <i className="fa-solid fa-wifi mr-2"></i>
-          <span>Check Your Internet Connection</span>
-        </div>
-      </Offline>
+        <Toaster position="top-right" />
+
+        <ReactQueryDevtools initialIsOpen={false} />
+
+        <Offline>
+          <div className="p-4 rounded-lg shadow bg-gray-200 text-gray-600 font-semibold fixed right-8 bottom-8 z-50">
+            <i className="fa-solid fa-wifi mr-2"></i>
+            <span>Check Your Internet Connection</span>
+          </div>
+        </Offline>
+      </QueryClientProvider>
     </>
   );
 }
