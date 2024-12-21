@@ -20,6 +20,7 @@ import Products from "./pages/Products/Products.jsx";
 import Categories from "./pages/Categories/Categories.jsx";
 import Brands from "./pages/Brands/Brands.jsx";
 import Wishlist from "./pages/Wishlist/Wishlist.jsx";
+import WishlistProvider from "./context/wishlist.context.jsx";
 
 function App() {
   const routes = createBrowserRouter([
@@ -66,7 +67,9 @@ function App() {
       <QueryClientProvider client={client}>
         <UserProvider>
           <CartProvider>
-            <RouterProvider router={routes} />
+            <WishlistProvider>
+              <RouterProvider router={routes} />
+            </WishlistProvider>
           </CartProvider>
         </UserProvider>
 

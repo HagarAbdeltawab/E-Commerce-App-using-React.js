@@ -3,9 +3,11 @@ import freshCartLogo from "../../assets/images/freshcart-logo.svg";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../context/User.context.jsx";
 import { CartContext } from "../../context/Cart.context.jsx";
+import { WishlistContext } from "../../context/wishlist.context.jsx";
 export default function Navbar() {
   const { token, logOut } = useContext(UserContext);
   const { cartProducts, getCartProducts } = useContext(CartContext);
+  const { wishArr } = useContext(WishlistContext);
 
   useEffect(() => {
     getCartProducts();
@@ -91,7 +93,7 @@ export default function Navbar() {
 
               <ul className="flex items-center justify-center gap-6 ml-auto">
                 <li>
-                  {cartProducts && (
+                  {wishArr.length > 0 && (
                     <Link
                       to="/wishlist"
                       className="cart relative cursor-pointer ml-auto"
@@ -100,6 +102,7 @@ export default function Navbar() {
                     </Link>
                   )}
                 </li>
+                
                 <li>
                   <Link to="/cart" className="cart relative cursor-pointer">
                     <i className="fa-solid fa-cart-shopping text-lg"></i>

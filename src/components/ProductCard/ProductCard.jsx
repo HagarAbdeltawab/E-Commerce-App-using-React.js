@@ -1,11 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/Cart.context.jsx";
 import { Link } from "react-router-dom";
+import { WishlistContext } from "../../context/wishlist.context.jsx";
 
 export default function ProductCard({ productInfo }) {
   const { imageCover, category, title, price, ratingsAverage, id } =
     productInfo;
   const { addProductToCart } = useContext(CartContext);
+  const { addProductToWishlist, removeProductFromWishlist, wishArr} =
+    useContext(WishlistContext);
 
   return (
     <>
@@ -14,7 +17,16 @@ export default function ProductCard({ productInfo }) {
           <img src={imageCover} alt="" className="w-full" />
 
           <div className=" layer flex gap-2 items-center justify-center absolute w-full h-full left-0 top-0 bg-black  bg-opacity-15 opacity-0 hover:opacity-100 transition-opacity duration-300">
-            <div className="icon hover:scale-110 hover:rotate-6 transition-transform duration-300 cursor-pointer w-8 h-8 rounded-full bg-primary-900 text-sm text-white flex justify-center items-center">
+            <div
+              onClick={() => {
+                !wishArr.includes(id)
+                  ? addProductToWishlist({ productId: id })
+                  : removeProductFromWishlist({ productId: id });
+              }}
+              className={`icon hover:scale-110 hover:rotate-6 transition-transform duration-300 cursor-pointer w-8 h-8 rounded-full text-sm text-white flex justify-center items-center ${
+                wishArr.includes(id) ? "bg-red-500" : " bg-primary-900"
+              }`}
+            >
               <i className=" fa-solid fa-heart"></i>
             </div>
 
