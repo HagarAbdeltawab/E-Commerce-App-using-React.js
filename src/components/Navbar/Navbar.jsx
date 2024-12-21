@@ -89,18 +89,32 @@ export default function Navbar() {
                 </li>
               </ul>
 
-              <Link to="/cart" className="cart relative cursor-pointer ml-auto">
-                <i className="fa-solid fa-cart-shopping text-lg"></i>
-                <div className="cart-counter absolute right-0 top-0 translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full bg-primary-900 text-white flex justify-center items-center">
-                  {cartProducts === null ? (
-                    <i className="fa-solid fa-spinner fa-spin text-sm"></i>
-                  ) : (
-                    <span className="text-sm font-semibold">
-                      {cartProducts.numOfCartItems}
-                    </span>
+              <ul className="flex items-center justify-center gap-6 ml-auto">
+                <li>
+                  {cartProducts && (
+                    <Link
+                      to="/wishlist"
+                      className="cart relative cursor-pointer ml-auto"
+                    >
+                      <i className=" fa-solid fa-heart text-primary-900 fa-xl"></i>
+                    </Link>
                   )}
-                </div>
-              </Link>
+                </li>
+                <li>
+                  <Link to="/cart" className="cart relative cursor-pointer">
+                    <i className="fa-solid fa-cart-shopping text-lg"></i>
+                    <div className="cart-counter absolute right-0 top-0 translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full bg-primary-900 text-white flex justify-center items-center">
+                      {cartProducts === null ? (
+                        <i className="fa-solid fa-spinner fa-spin text-sm"></i>
+                      ) : (
+                        <span className="text-sm font-semibold">
+                          {cartProducts.numOfCartItems}
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                </li>
+              </ul>
             </>
           )}
 

@@ -16,6 +16,10 @@ import Orders from "./pages/Orders/Orders.jsx";
 import Offline from "./components/Offline/Offline.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Products from "./pages/Products/Products.jsx";
+import Categories from "./pages/Categories/Categories.jsx";
+import Brands from "./pages/Brands/Brands.jsx";
+import Wishlist from "./pages/Wishlist/Wishlist.jsx";
 
 function App() {
   const routes = createBrowserRouter([
@@ -28,9 +32,13 @@ function App() {
       ),
       children: [
         { index: true, element: <Home /> },
-        { path: "category/:id", element: <h2>Category</h2> },
-        { path: "cart", element: <Cart /> },
+        { path: "products", element: <Products /> },
         { path: "product/:id", element: <ProductDetails /> },
+        { path: "categories", element: <Categories /> },
+        { path: "category/:id", element: <h2>Category</h2> },
+        { path: "brands", element: <Brands /> },
+        { path: "wishlist", element: <Wishlist /> },
+        { path: "cart", element: <Cart /> },
         { path: "checkout", element: <Checkout /> },
         { path: "allorders", element: <Orders /> },
         { path: "*", element: <NotFound /> },
@@ -51,7 +59,7 @@ function App() {
     },
   ]);
 
-  const client = new QueryClient()
+  const client = new QueryClient();
 
   return (
     <>
