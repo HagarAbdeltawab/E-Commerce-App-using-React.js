@@ -111,7 +111,7 @@ export default function Login() {
         </button>
       </form>
 
-      <Link to={'/forget-password'}>forget your password ?</Link>
+      <Link to={"/forget-password"}>forget your password ?</Link>
     </>
   );
 }
