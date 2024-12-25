@@ -2,7 +2,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import { useContext } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { object, string } from "yup";
 import { UserContext } from "../../context/User.context.jsx";
 import { Helmet } from "react-helmet";
@@ -110,6 +110,8 @@ export default function Login() {
           Login
         </button>
       </form>
+
+      <Link to={'/forget-password'}>forget your password ?</Link>
     </>
   );
 }

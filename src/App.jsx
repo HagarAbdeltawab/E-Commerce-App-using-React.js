@@ -21,6 +21,9 @@ import Categories from "./pages/Categories/Categories.jsx";
 import Brands from "./pages/Brands/Brands.jsx";
 import Wishlist from "./pages/Wishlist/Wishlist.jsx";
 import WishlistProvider from "./context/wishlist.context.jsx";
+import ForgetPassword from "./pages/ForgetPassword/ForgetPassword.jsx";
+import VerifyCode from "./pages/VerifyCode/VerifyCode.jsx";
+import ResetPassword from "./pages/ResetPassword/ResetPassword.jsx";
 
 function App() {
   const routes = createBrowserRouter([
@@ -55,6 +58,9 @@ function App() {
       children: [
         { path: "signup", element: <Signup /> },
         { path: "login", element: <Login /> },
+        { path: "forget-password", element: <ForgetPassword /> },
+        { path: "verify-code", element: <VerifyCode /> },
+        { path: "reset-password", element: <ResetPassword /> },
         { path: "*", element: <NotFound /> },
       ],
     },

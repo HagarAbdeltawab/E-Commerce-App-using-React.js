@@ -6,8 +6,7 @@ import { CartContext } from "../../context/Cart.context.jsx";
 import { WishlistContext } from "../../context/wishlist.context.jsx";
 export default function Navbar() {
   const { token, logOut } = useContext(UserContext);
-  const { cartProducts, getCartProducts } = useContext(CartContext);
-  const { wishArr } = useContext(WishlistContext);
+  const { cartProducts, getCartProducts } = useContext(CartContext); 
 
   useEffect(() => {
     getCartProducts();
@@ -93,16 +92,14 @@ export default function Navbar() {
 
               <ul className="flex items-center justify-center gap-6 ml-auto">
                 <li>
-                  {wishArr.length > 0 && (
-                    <Link
-                      to="/wishlist"
-                      className="cart relative cursor-pointer ml-auto"
-                    >
-                      <i className=" fa-solid fa-heart text-primary-900 fa-xl"></i>
-                    </Link>
-                  )}
+                  <Link
+                    to="/wishlist"
+                    className="cart relative cursor-pointer ml-auto"
+                  >
+                    <i className=" fa-solid fa-heart text-primary-900 fa-xl"></i>
+                  </Link>
                 </li>
-                
+
                 <li>
                   <Link to="/cart" className="cart relative cursor-pointer">
                     <i className="fa-solid fa-cart-shopping text-lg"></i>

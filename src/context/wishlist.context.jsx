@@ -22,6 +22,7 @@ export default function WishlistProvider({ children }) {
       const { data } = await axios.request(options);
       if (data.status === "success") {
         setWishArr(data.data);
+        console.log(data.data); 
         getWishlistProducts();
         toast.success(data.message);
       }
@@ -43,7 +44,8 @@ export default function WishlistProvider({ children }) {
       };
       const { data } = await axios.request(options);
       if (data.status === "success") {
-        setWishArr(data.data);
+        setWishArr(data.data);        console.log(data.data); 
+
         getWishlistProducts();
         toast.success(data.message);
       }
@@ -64,7 +66,7 @@ export default function WishlistProvider({ children }) {
       };
       const { data } = await axios.request(options);
       if (data.status === "success") {
-        setWishProducts(data.data);
+        setWishProducts(data.data);  
       }
     } catch (error) {
       console.error(error);
